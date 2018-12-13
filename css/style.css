@@ -1,0 +1,425 @@
+body {
+  background: black;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0;
+  overflow: hidden;
+}
+
+div.wrapper {
+  background: black font-family: 'Ubuntu', sans-serif;
+  height: 100%;
+}
+
+.rain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.rain.back-row {
+  display: none;
+  z-index: 1;
+  bottom: 60px;
+  opacity: 0.5;
+}
+
+body.back-row-toggle .rain.back-row {
+  display: block;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 100px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+
+  75% {
+    transform: translateY(110vh);
+  }
+
+  100% {
+    transform: translateY(110vh);
+  }
+}
+
+.stem {
+  width: 3px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+  animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: none;
+}
+
+body.splat-toggle .splat {
+  display: block;
+}
+
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+body.single-toggle .drop {
+  display: none;
+}
+
+body.single-toggle .drop:nth-child(10) {
+  display: block;
+}
+
+p {
+  text-align: left;
+  width: 40%;
+  color: white;
+  margin: 0 auto;
+  margin-top: 15%;
+  font-size: 1.5em;
+}
+
+h3 {
+  display: inline-block;
+  color: #5cb290;
+  font-size: 7em;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+  position: absolute;
+  top: -115px;
+  left: 30%;
+}
+
+div.bigword {
+  transform: rotate(90deg);
+  /* transform-origin: left top 0; */
+  color: white;
+  opacity: 0.05;
+  font-size: 40em;
+  position: absolute;
+  top: -10%;
+  left: -37%;
+  width: 100%;
+  text-align: center;
+}
+
+div.bigworddown {
+  transform: rotate(90deg);
+  /* transform-origin: left top 0; */
+  color: white;
+  opacity: 0.05;
+  font-size: 40em;
+  position: absolute;
+  top: -110%;
+  right: -45%;
+  width: 100%;
+  text-align: center;
+}
+
+div.middle {
+  position: relative;
+}
+
+#tiki {
+  transform: scale(4.9);
+  margin-bottom: 10%;
+  margin-left: -25%;
+}
+
+#icon {
+  transform: scale(.08);
+  position: absolute;
+  top: -66%;
+  left: -40%;
+}
+
+/* div.control {
+	position: relative;
+	background: blue;
+
+} */
+div.title {
+  width: 28%;
+  position: absolute;
+  top: 12%;
+  left: 38%;
+}
+
+h2.explorer {
+  z-index: 2;
+  font-size: 2vw;
+  color: white;
+  position: absolute;
+  top: 59%;
+  left: 9%;
+}
+
+div.footer {
+  position: absolute;
+  width: 40%;
+  height: 15em;
+  bottom: 10em;
+  display: flex;
+  flex-direction: column;
+}
+
+div.footersuper {
+  position: absolute;
+  width: 40%;
+  height: 15em;
+  left: 55%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+div.footersupergrass {
+  position: absolute;
+  width: 100%;
+  height: 50em;
+  left: -3%;
+  bottom: -5%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.footersuperorigin {
+  position: absolute;
+  width: 40%;
+  height: 8em;
+  left: -15%;
+  top: 3%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+
+div.footersuperbeer {
+	position: absolute;
+	width: 40%;
+	height: 30em;
+	left: 55%;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+
+}
+
+#menu {
+  position: fixed;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  right: -8.8em;
+  top: 50%;
+  width: 8em;
+  background: #5cb290;
+  margin: -3em 0 0 0;
+  padding: 0.8em 0.8em 0.8em 3em;
+  /* border-radius: 3em 0.5em 0.5em 3em; */
+  box-shadow: 0 1px 3px purple;
+  text-align: left;
+  line-height: 2em;
+  z-index: 4;
+}
+
+#menu:hover {
+  right: 0;
+}
+
+#menu a {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+#menu a:hover {
+  color: white;
+}
+
+#menu {
+  transition: 0.2s
+}
+
+h1 {
+  color: white;
+  position: absolute;
+  left: 40%;
+  top: 21.3%;
+  font-size: 6em;
+  letter-spacing: 5px;
+}
+
+.cloud-container {
+  opacity: 0.5
+}
+
+.cloud,
+.cloud:before,
+.cloud:after {
+  border-radius: 35px;
+  background: rgb(145, 133, 132);
+}
+
+.cloud {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: 30px;
+  border-radius: 50px 35px 35px 15px;
+  position: relative;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.cloud:before {
+  width: 40px;
+  height: 45px;
+  left: 12px;
+  bottom: 0;
+}
+
+.cloud:after {
+  width: 40px;
+  height: 50px;
+  right: 16px;
+  bottom: 0;
+}
+
+.cloud:nth-child(1) {
+  position: absolute;
+  top: 180px;
+  left: -450px;
+}
+
+.cloud:nth-child(2) {
+  position: absolute;
+  top: 80px;
+  left: -230px;
+}
+
+.cloud:nth-child(4) {
+  position: absolute;
+  top: 50px;
+  left: 230px;
+}
+
+.cloud:nth-child(5) {
+  position: absolute;
+  top: 140px;
+  right: 100px;
+}
+
+.cloud {
+  animation: cloudmove 20s linear infinite backwards;
+}
+
+@keyframes cloudmove {
+  0% {
+    transform: translateX(-450px);
+  }
+
+  100% {
+    transform: translateX(1090px);
+  }
+}
+
+div.footersupercloud {
+  position: absolute;
+  width: 100%;
+  height: 40em;
+  bottom: 20%;
+  left: 40% display: flex;
+  flex-direction: column;
+  opacity: 0.8;
+}
+
+#feather {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 45%;
+  bottom: -15%;
+  margin: auto;
+  width: 150px;
+  animation: feather 5s ease-in-out 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  transform-origin: 0% 50%;
+	opacity: 0.8;
+}
+
+@keyframes feather {
+  0% {
+    transform: rotate(50deg) translate(0px, 50px);
+  }
+  25% {
+    transform: rotate(90deg) translate(50px, 100px);
+  }
+  50% {
+    transform: rotate(50deg) translate(100px, 50px);
+  }
+  75% {
+    transform: rotate(90deg) translate(150px, 100px);
+  }
+  100% {
+    transform: rotate(70deg) translate(200px, 75px);
+  }
+}
